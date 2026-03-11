@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { AppSidebar } from "@/components/app-sidebar"
+import { AppSidebar, type UserRole } from "@/components/app-sidebar"
 
 interface AppShellProps {
   children: React.ReactNode
@@ -9,12 +9,30 @@ interface AppShellProps {
   description?: string
   icon?: React.ReactNode
   actions?: React.ReactNode
+  user?: {
+    name: string
+    role: UserRole
+    team?: string
+    employeeId?: string
+  }
 }
 
-export function AppShell({ children, title, description, icon, actions }: AppShellProps) {
+export function AppShell({ 
+  children, 
+  title, 
+  description, 
+  icon, 
+  actions,
+  user = {
+    name: "Chukwuemeka Obi",
+    role: "closer",
+    team: "Team Abigail",
+    employeeId: "SC001"
+  }
+}: AppShellProps) {
   return (
     <div className="flex min-h-screen bg-[#0a0a0b]">
-      <AppSidebar />
+      <AppSidebar user={user} />
       <main className="ml-[220px] flex-1">
         {(title || actions) && (
           <header className="sticky top-0 z-30 flex h-14 items-center justify-between border-b border-[#1f1f22] bg-[#0a0a0b]/80 px-6 backdrop-blur-sm">
