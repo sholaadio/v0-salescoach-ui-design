@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation"
 
 export default function Home() {
-  // Redirect to dashboard for demo
-  redirect("/dashboard")
+  // Redirect to management portal for demo
+  redirect("/management")
 }
